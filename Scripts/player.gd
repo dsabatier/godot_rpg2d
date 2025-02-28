@@ -1,8 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var SPEED = 100.0
 
 @onready var sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 
@@ -43,4 +42,9 @@ func _physics_process(_delta: float) -> void:
 	else:
 		sprite.stop()
 
+	var collision = get_last_slide_collision()
+
+	if(collision and collision.get_collider().has_signal("player_collision")):
+		collision.get_collider().emit_signal("player_collision", collision.get_normal())
+		
 	move_and_slide()

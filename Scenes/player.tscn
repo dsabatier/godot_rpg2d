@@ -16,5 +16,5 @@ animation = &"idle"
 offset = Vector2(0, -8.135)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_4qu6c")
