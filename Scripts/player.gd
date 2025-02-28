@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+enum FacingDirection { UP, DOWN, LEFT, RIGHT }
+
 @export var SPEED = 100.0
 
 @onready var sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
@@ -13,7 +15,7 @@ func _ready():
 	sprite.sprite_frames = frames
 	sprite.position = Vector2(0, 0)
 
-	global_position = SceneManager.get_entrance_position()
+	SceneManager.init_player(self)
 
 	#_no_input = Input.get_vector("move_left", "move_right", "move_up", "move_down").length_squared() > 0
 
@@ -48,3 +50,29 @@ func _physics_process(_delta: float) -> void:
 		collision.get_collider().emit_signal("player_collision", collision.get_normal())
 		
 	move_and_slide()
+
+
+func get_facing_direction() -> FacingDirection:
+	if(sprite.animation == "move_left"):
+		return FacingDirection.LEFT
+	elif(sprite.animation == "move_right"):
+		return FacingDirection.RIGHT
+	elif(sprite.animation == "move_up"):
+		return FacingDirection.UP
+	elif(sprite.animation == "move_down"):
+		return FacingDirection.DOWN
+	else:
+		return FacingDirection.DOWN
+
+func set_facing_direction(direction: FacingDirection) -> void:
+	match direction:
+		FacingDirection.UP:
+			sprite.animation = "move_up"
+		FacingDirection.DOWN:
+			sprite.animation = "move_down"
+		FacingDirection.LEFT:
+			sprite.animation = "move_left"
+		FacingDirection.RIGHT:
+			sprite.animation = "move_right"
+		_:
+			sprite.animation = "move_down"

@@ -880,6 +880,7 @@ zoom = Vector2(3, 3)
 position = Vector2(39.8, -64)
 script = ExtResource("6_2efb7")
 next_scene = "res://Scenes/dungeon.tscn"
+entrance_index = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneExit"]
 shape = SubResource("RectangleShape2D_eo3hi")
