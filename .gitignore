@@ -1,4 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
-.vscode/
+
+# ignore vscode settings
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
