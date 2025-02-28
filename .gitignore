@@ -3,3 +3,4 @@
 
 # ignore vscode settings
 .vscode/*
+!.vscode/launch.json
