@@ -27,13 +27,16 @@ window/stretch/scale_mode="integer"
 [file_customization]
 
 folder_colors={
-"res://Ninja Adventure - Asset Pack/": "purple"
+"res://Ninja Adventure - Asset Pack/": "purple",
+"res://Scenes/": "green",
+"res://Scripts/": "pink"
 }
 
 [global_group]
 
 entrance_collection=""
 player=""
+block=""
 
 [input]
 
